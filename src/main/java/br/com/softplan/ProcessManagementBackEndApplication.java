@@ -1,4 +1,4 @@
-package br.com.softplan.processManagementBackEnd;
+package br.com.softplan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

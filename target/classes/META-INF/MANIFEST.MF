@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: processManagementBackEnd
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Marcelo Kath
+Implementation-Vendor-Id: br.com.softplan
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://projects.spring.io/spring-boot/processManag
+ ementBackEnd/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
