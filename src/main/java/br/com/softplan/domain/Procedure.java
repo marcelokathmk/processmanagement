@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "procedure")
@@ -31,12 +30,15 @@ public class Procedure extends BaseDomain implements Serializable {
 	
 	private Boolean feedbackPendent;
 	
-	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(	name = "PROCEDURE_USER",
 				joinColumns = @JoinColumn(name = "id_procedure"),
 				inverseJoinColumns = @JoinColumn(name = "id_user"))
 	private List<User> users = new ArrayList<User>();
+	
+	public Procedure() {
+		super(null);
+	}
 	
 	public Procedure(String descriptionProcedure, Boolean isFeedbackPendent, User userCreator) {
 		super(userCreator);
@@ -69,6 +71,9 @@ public class Procedure extends BaseDomain implements Serializable {
 	}
 
 	public List<User> getUsers() {
+		if	(users == null) {
+			users = new ArrayList<User>();
+		}
 		return users;
 	}
 

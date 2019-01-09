@@ -33,8 +33,9 @@ public class DBService {
 		User user1 = new User(UserType.ADMINITRADOR.getIdType(), "userAdmin", crypto.encode("123abc"), null);
 		User user2 = new User(UserType.TRIADOR.getIdType(), "userTriador", crypto.encode("123qwerty"), user1);
 		User user3 = new User(UserType.FINALIZADOR.getIdType(), "userFinalizador", crypto.encode("123qlkj"), user1);
+		User user4 = new User(UserType.FINALIZADOR.getIdType(), "userFinalizadorDois", crypto.encode("123qlkj"), user1);
 		
-		userRepository.save(Arrays.asList(user1, user2, user3));
+		userRepository.save(Arrays.asList(user1, user2, user3, user4));
 		
 		Procedure proc1 = new Procedure("Processo xyz", true, user2);
 		proc1.getUsers().add(user2);
